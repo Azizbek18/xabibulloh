@@ -1,11 +1,11 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
-        body { background: #03040b; color: #fff; overflow: hidden; height: 100vh; display: flex; align-items: center; justify-content: center; perspective: 1000px; }
+        body { background: #03040b; color: #fff; min-height: 100vh; overflow-y: auto; overflow-x: hidden; display: flex; align-items: center; justify-content: center; perspective: 1000px; padding: 20px 0; }
 
         /* Kiberfon setkasi */
         .cyber-grid { position: absolute; width: 100%; height: 100%; background-image: linear-gradient(rgba(0, 212, 170, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 170, 0.05) 1px, transparent 1px); background-size: 40px 40px; z-index: 1; }
 
         /* Asosiy Konteyner */
-        .auth-container { position: relative; width: 400px; padding: 40px 30px; background: rgba(6, 7, 19, 0.9); border: 2px solid #00d4aa; border-radius: 16px; box-shadow: 0 0 50px rgba(0, 212, 170, 0.3); z-index: 10; backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; transition: all 0.5s ease; }
+        .auth-container { position: relative; width: min(400px, 92vw); margin: auto; padding: 40px 30px; background: rgba(6, 7, 19, 0.9); border: 2px solid #00d4aa; border-radius: 16px; box-shadow: 0 0 50px rgba(0, 212, 170, 0.3); z-index: 10; backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; transition: all 0.5s ease; }
 
         /* PDP JUNIOR LOGO EFFECT */
         .brand-title { font-size: 28px; font-weight: 900; letter-spacing: 2px; margin-bottom: 5px; font-family: 'Arial Black', sans-serif; }
@@ -41,3 +41,23 @@
 
         /* MATRIX PORTLASH ANIMATSIYASI */
         .system-boomed { transform: scale(0) rotate(720deg); opacity: 0; }
+
+        /* RESPONSIVE */
+        @media (max-width: 420px) {
+            .auth-container { padding: 30px 20px; }
+            .cube-wrapper { width: 70px; height: 70px; margin-bottom: 18px; }
+            .cube-face { width: 70px; height: 70px; font-size: 8px; }
+            .front  { transform: rotateY(  0deg) translateZ(35px); }
+            .back   { transform: rotateY(180deg) translateZ(35px); }
+            .right  { transform: rotateY( 90deg) translateZ(35px); }
+            .left   { transform: rotateY(-90deg) translateZ(35px); }
+            .top    { transform: rotateX( 90deg) translateZ(35px); }
+            .bottom { transform: rotateX(-90deg) translateZ(35px); }
+            .brand-title { font-size: 22px; }
+            .system-status { font-size: 10px; margin-bottom: 20px; }
+        }
+
+        @media (max-height: 480px) {
+            .cube-wrapper { display: none; }
+            .system-status { margin-bottom: 18px; }
+        }
