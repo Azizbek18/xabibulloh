@@ -1,0 +1,43 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background: #03040b; color: #fff; overflow: hidden; height: 100vh; display: flex; align-items: center; justify-content: center; perspective: 1000px; }
+
+        /* Kiberfon setkasi */
+        .cyber-grid { position: absolute; width: 100%; height: 100%; background-image: linear-gradient(rgba(0, 212, 170, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 170, 0.05) 1px, transparent 1px); background-size: 40px 40px; z-index: 1; }
+
+        /* Asosiy Konteyner */
+        .auth-container { position: relative; width: 400px; padding: 40px 30px; background: rgba(6, 7, 19, 0.9); border: 2px solid #00d4aa; border-radius: 16px; box-shadow: 0 0 50px rgba(0, 212, 170, 0.3); z-index: 10; backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; transition: all 0.5s ease; }
+
+        /* PDP JUNIOR LOGO EFFECT */
+        .brand-title { font-size: 28px; font-weight: 900; letter-spacing: 2px; margin-bottom: 5px; font-family: 'Arial Black', sans-serif; }
+        .brand-title span { color: #00d4aa; text-shadow: 0 0 15px #00d4aa; }
+        .system-status { font-family: monospace; font-size: 11px; color: #556080; margin-bottom: 30px; letter-spacing: 1px; }
+
+        /* INPUT BLOCKLARI */
+        .input-group { position: relative; width: 100%; margin-bottom: 20px; }
+        .input-group input { width: 100%; padding: 12px 15px; background: #0c0e22; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: 0.3s; }
+        .input-group input:focus { border-color: #00d4aa; box-shadow: 0 0 15px rgba(0, 212, 170, 0.2); }
+
+        /* CHROME BOMBA TUGMALAR */
+        .cyber-btn { width: 100%; padding: 14px; background: transparent; border: 1px solid #00d4aa; color: #fff; font-size: 14px; font-weight: bold; letter-spacing: 2px; border-radius: 8px; cursor: pointer; transition: 0.3s; margin-top: 10px; font-family: monospace; }
+        .cyber-btn:hover { background: #00d4aa; color: #000; box-shadow: 0 0 25px #00d4aa; transform: translateY(-2px); }
+        
+        .switch-link { margin-top: 15px; font-size: 12px; color: #6a779d; cursor: pointer; font-family: monospace; }
+        .switch-link:hover { color: #ffe66d; }
+
+        /* ======================================================== */
+        /* 🪐 3D KUBIK MATRIX EFFEKTI (CSS 3D REVOLUTION) */
+        /* ======================================================== --> */
+        .cube-wrapper { width: 100px; height: 100px; margin-bottom: 25px; perspective: 400px; }
+        .cube { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transform: rotateX(-20deg) rotateY(45deg); transition: transform 0.1s ease; }
+        .cube-face { position: absolute; width: 100px; height: 100px; border: 2px solid #00d4aa; background: rgba(0, 212, 170, 0.1); box-shadow: inset 0 0 15px rgba(0, 212, 170, 0.5); display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 10px; color: #00ffcc; font-weight: bold; text-shadow: 0 0 5px #00ffcc; }
+        
+        /* 3D Tomonlar koordinatasi */
+        .front  { transform: rotateY(  0deg) translateZ(50px); }
+        .back   { transform: rotateY(180deg) translateZ(50px); border-color: #ffe66d; color: #ffe66d; }
+        .right  { transform: rotateY( 90deg) translateZ(50px); }
+        .left   { transform: rotateY(-90deg) translateZ(50px); }
+        .top    { transform: rotateX( 90deg) translateZ(50px); }
+        .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+        /* MATRIX PORTLASH ANIMATSIYASI */
+        .system-boomed { transform: scale(0) rotate(720deg); opacity: 0; }

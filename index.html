@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDP JUNIOR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div id="robot-popup" class="robot-popup">
+    <div class="robot-content">
+        <span class="close-robot" onclick="closeRobot()">&times;</span>
+        
+        <img src="./images/robot.png" alt="PDP Junior Robot" class="robot-img">
+        
+        <h3>Sayt sizga maqul keldimi? 😊</h3>
+        <p>Filiallarimiz va sharoitlar ma'qul bo'lgan bo'lsa, rasmiy botimizga o'tib, ariza topshirishingiz mumkin!</p>
+        
+        <a href="https://t.me/pdp3d_login_bot" target="_blank" class="bot-btn">🤖 Botga o'tish</a>
+    </div>
+</div>
+
+
+
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- 3D Particles Background -->
+    <div class="particles-bg" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo" onclick="showPage('filiallar'); return false;">PDP <span>JUNIOR</span></a>
+        <ul class="nav-links">
+            <li><a class="active" onclick="showPage('filiallar')">Filiallar</a></li>
+            <li><a onclick="showPage('kurslar')">Kurslar</a></li>
+            <li><a onclick="showPage('mentorlar')">Mentorlar</a></li>
+            <li><a onclick="showPage('natijalar')">Natijalar</a></li>
+            <li><a onclick="showPage('aloqa')">Aloqa</a></li>
+        </ul>
+    </nav>
+
+    <!-- ==================== FILIALLAR PAGE ==================== -->
+    <div class="page active" id="page-filiallar">
+        <div class="branch-selector">
+            <button class="branch-btn active" data-branch="yashnobod" data-color="#00d4aa">Yashnobod</button>
+            <button class="branch-btn" data-branch="xadra" data-color="#ff6b6b">Xadra</button>
+            <button class="branch-btn" data-branch="chilonzor" data-color="#4ecdc4">Chilonzor</button>
+            <button class="branch-btn" data-branch="algoritm" data-color="#ffe66d">Algoritm</button>
+            <button class="branch-btn" data-branch="m-ulugbek" data-color="#a8e6cf">M.Ulug'bek</button>
+            <button class="branch-btn" data-branch="beruniy" data-color="#c7ceea">Beruniy</button>
+        </div>
+
+        <div class="branch-header">
+            <h1 id="branchTitle" style="color: #00d4aa;">PDP JUNIOR – YASHNOBOD FILIALI</h1>
+            <p id="branchDesc">Eng zamonaviy o'quv xonalari va professional mentorlar jamoasi.</p>
+        </div>
+
+        <div class="branch-content">
+            <!-- 3D Image Section -->
+            <div class="image-section">
+                <div class="image-card" id="imageCard">
+                    <img src="./images/yashnobod.png" 
+                         alt="Yashnobod Filiali" 
+                         class="branch-image-real" 
+                         id="branchImage"
+                         style="display: none;"
+                         onload="this.style.display='block'; document.getElementById('placeholderDiv').style.display='none';"
+                         onerror="this.style.display='none'; document.getElementById('placeholderDiv').style.display='flex';">
+
+                    <div class="image-placeholder" id="placeholderDiv">
+                        <div class="placeholder-icon">🏢</div>
+                        <div class="placeholder-text">[ RASMI QO'YING ]</div>
+                        <div class="placeholder-path" id="placeholderPath">./images/yashnobod.png</div>
+                    </div>
+
+                    <div class="image-label" id="imageLabel" style="border-color: #00d4aa; color: #00d4aa;">
+                        YASHNOBOD FILIALI
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card scroll-reveal">
+                    <h3>📍 Manzil</h3>
+                    <p id="address">Yashnobod tumani, Amir Temur ko'chasi, 108-uy</p>
+                </div>
+                <div class="info-card scroll-reveal">
+                    <h3>🕐 Ish vaqti</h3>
+                    <p>Dushanba - Shanba: 09:00 - 20:00<br>Yakshanba: Dam olish kuni</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item scroll-reveal">
+                        <div class="number" id="studentsCount">500+</div>
+                        <div class="label">O'quvchilar</div>
+                    </div>
+                    <div class="stat-item scroll-reveal">
+                        <div class="number" id="mentorsCount">25+</div>
+                        <div class="label">Mentorlar</div>
+                    </div>
+                    <div class="stat-item scroll-reveal">
+                        <div class="number">15+</div>
+                        <div class="label">Kurslar</div>
+                    </div>
+                    <div class="stat-item scroll-reveal">
+                        <div class="number">98%</div>
+                        <div class="label">Mamnunlik</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section scroll-reveal">
+            <h2>Bepul sinov darsiga yoziling!</h2>
+            <p>Birinchi dars bepul. Hoziroq ro'yxatdan o'ting va IT sohasidagi karyerangizni boshlang.</p>
+            <button class="cta-btn" onclick="showPage('aloqa')">Ro'yxatdan o'tish</button>
+        </div>
+    </div>
+
+    <!-- ==================== KURSLAR PAGE ==================== -->
+    <div class="page" id="page-kurslar">
+        <div class="branch-header">
+            <h1 style="color: var(--primary);">Barcha Kurslar</h1>
+            <p>Zamonaviy IT kurslari bilan kelajak kasbingizni bugundan boshlang</p>
+        </div>
+
+        <div class="courses-grid">
+            <div class="course-card scroll-reveal" onclick="openKursModal('programming')">
+                <img src="" alt="Dasturlash" class="course-img" onerror="this.style.display='none'">
+                <div class="card-body">
+                    <div class="icon">💻</div>
+                    <h4>Dasturlash Asoslari</h4>
+                    <p>Python, JavaScript va C++ tillarida dasturlashni o'rganing.</p>
+                    <div class="tags"><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">C++</span></div>
+                </div>
+            </div>
+            <div class="course-card scroll-reveal" onclick="openKursModal('design')">
+                <img src="./images/web-design.png" alt="Web Dizayn" class="course-img" onerror="this.style.display='none'">
+                <div class="card-body">
+                    <div class="icon">🎨</div>
+                    <h4>Web Dizayn</h4>
+                    <p>HTML, CSS va Figma orqali zamonaviy veb-saytlar yaratish.</p>
+                    <div class="tags"><span class="tag">HTML/CSS</span><span class="tag">Figma</span><span class="tag">UI/UX</span></div>
+                </div>
+            </div>
+            <div class="course-card scroll-reveal" onclick="openKursModal('robotics')">
+                <img src="./images/robot.png" alt="Robototexnika" class="course-img" onerror="this.style.display='none'">
+                <div class="card-body">
+                    <div class="icon">🤖</div>
+                    <h4>Robototexnika</h4>
+                    <p>Arduino va Lego Mindstorms bilan robotlar yasash.</p>
+                    <div class="tags"><span class="tag">Arduino</span><span class="tag">Lego</span><span class="tag">IoT</span></div>
+                </div>
+            </div>
+            <div class="course-card scroll-reveal" onclick="openKursModal('gamedev')">
+                <img src="./images/algoritmda.png" alt="O'yin Yaratish" class="course-img" onerror="this.style.display='none'">
+                <div class="card-body">
+                    <div class="icon">🎮</div>
+                    <h4>O'yin Yaratish</h4>
+                    <p>Unity va Scratch bilan o'z o'yinlaringizni yaratish.</p>
+                    <div class="tags"><span class="tag">Unity</span><span class="tag">Scratch</span><span class="tag">C#</span></div>
+                </div>
+            </div>
+            <div class="course-card scroll-reveal" onclick="openKursModal('mobile')">
+                <img src="./images/web-design.png" alt="Mobil Dasturlash" class="course-img" onerror="this.style.display='none'">
+                <div class="card-body">
+                    <div class="icon">📱</div>
+                    <h4>Mobil Dasturlash</h4>
+                    <p>Flutter va React Native bilan iOS va Android ilovalari.</p>
+                    <div class="tags"><span class="tag">Flutter</span><span class="tag">React Native</span><span class="tag">Dart</span></div>
+                </div>
+            </div>
+            <div class="course-card scroll-reveal" onclick="openKursModal('ai')">
+                <img src="./images/robot.png" alt="Sun'iy Intellekt" class="course-img" onerror="this.style.display='none'">
+                <div class="card-body">
+                    <div class="icon">🧠</div>
+                    <h4>Sun'iy Intellekt</h4>
+                    <p>Machine Learning va Deep Learning asoslari.</p>
+                    <div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">AI</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MENTORLAR PAGE ==================== -->
+   <!-- ==================== MENTORLAR PAGE ==================== -->
+    <div class="page" id="page-mentorlar">
+        <div class="branch-header">
+            <h1 style="color: var(--primary);">Professional Mentorlar</h1>
+            <p>Tajribali va sertifikatlangan mentorlar jamoasi siz bilan</p>
+        </div>
+
+        <div class="mentors-grid">
+            <!-- 1-Ustoz -->
+            <div class="mentor-card scroll-reveal" data-name="Azizbek Rahimov" data-role="Senior Python Developer" data-exp="8 yil" data-tech="Python, Django, FastAPI, PostgreSQL, AWS" data-company="Google, Yandex" data-bio="Yirik masshtabdagi backend tizimlarni loyihalash bo'yicha ekspert. PDP Junior loyihasida 500 dan ortiq muvaffaqiyatli o'quvchilarni tayyorlagan.">
+                <div class="mentor-avatar-wrapper">
+                    <img src="./images/azizbek.png" alt="Azizbek" class="mentor-real-img" onerror="this.src='./images/azizbek.png'">
+                </div>
+                <h4>Azizbek</h4>
+                <div class="role">Senior Python Developer</div>
+                <div class="bio">8 yillik tajriba. Google, Yandex kompaniyalarida ishlagan.</div>
+            </div>
+
+            <!-- 2-Ustoz -->
+            <div class="mentor-card scroll-reveal" data-name="Habibulloh" data-role="UI/UX Designer" data-exp="10 yil" data-tech="Figma, Adobe XD, Photoshop, Illustrator, Webflow" data-company="EPAM, Toptal Freelancer" data-bio="Xalqaro startaplar va mobil ilovalar uchun interfeyslar dizayneri. O'quvchilarga zamonaviy vizual estetikani va kiber-dizayn sirlarini o'rgatadi.">
+                <div class="mentor-avatar-wrapper">
+                    <img src="./images/habibulloh.png" alt="Habibulloh" class="mentor-real-img" onerror="this.src='./images/habibulloh.png'">
+                </div>
+                <h4>Habibulloh</h4>
+                <div class="role">UI/UX Designer</div>
+                <div class="bio">10 yillik dizayn tajribasi. Figma, Adobe mutaxassisi.</div>
+            </div>
+
+            <!-- 3-Ustoz -->
+            <div class="mentor-card scroll-reveal" data-name="./images/javohir.png" data-role="Robototexnika Inzheneri" data-exp="6 yil" data-tech="Arduino, Raspberry Pi, IoT, C++, Embedded Linux" data-company="Texnopark, RoboX" data-bio="Aqlli uylar va avtomatlashtirilgan robot tizimlari bo'yicha yetakchi inzhener. Respublika robototexnika musobaqalari g'oliblari ustozi.">
+                <div class="mentor-avatar-wrapper">
+                    <img src="/./images/javohir.png" alt="Javohir" class="mentor-real-img" onerror="this.src='/./images/javohir.png'">
+                </div>
+                <h4>Javohir</h4>
+                <div class="role">Robototexnika Inzheneri</div>
+                <div class="bio">Arduino, Raspberry Pi, IoT sohasida 6 yillik tajriba.</div>
+            </div>
+
+            <!-- 4-Ustoz -->
+            <div class="mentor-card scroll-reveal" data-name="Muxamad Aziz" data-role="Game Developer" data-exp="5 yil" data-tech="Unity, Unreal Engine 5, C#, C++, Blender 3D" data-company="GameStorm Studios" data-bio="3D o'yinlar va kiber-olamlarni yaratish bo'yicha mutaxassis. Steam va Google Play platformalarida 5 dan ortiq shaxsiy o'yinlar muallifi.">
+                <div class="mentor-avatar-wrapper">
+                    <img src="./images/muxmadaziz.jpg" alt="Muxamad Aziz" class="mentor-real-img" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=muxmad'">
+                </div>
+                <h4>Muxamad Aziz</h4>
+                <div class="role">Game Developer</div>
+                <div class="bio">Unity, Unreal Engine mutaxassisi. 5 ta o'yin nashr qilgan.</div>
+            </div>
+
+            <!-- 5-Ustoz -->
+            <div class="mentor-card scroll-reveal" data-name="Nodira Yusupova" data-role="Mobile Developer" data-exp="7 yil" data-tech="Flutter, React Native, Dart, JavaScript, Firebase, GraphQL" data-company="Click, UZCARD" data-bio="Yirik fintex va bank mobil ilovalarini ishlab chiqqan senior dasturchi. iOS va Android tizimlari uchun bir marta kod yozish arxitekturasi ustasi.">
+                <div class="mentor-avatar-wrapper">
+                    <img src="./images/nodira-yusupova.png" alt="Nodira Yusupova" class="mentor-real-img" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=nodira'">
+                </div>
+                <h4>Nodira Yusupova</h4>
+                <div class="role">Mobile Developer</div>
+                <div class="bio">Flutter va React Native bo'yicha 7 yillik tajriba.</div>
+            </div>
+
+            <!-- 6-Ustoz -->
+            <div class="mentor-card scroll-reveal" data-name="Diyorbek Saidov" data-role="AI Researcher" data-exp="9 yil" data-tech="Python, TensorFlow, PyTorch, Computer Vision, NLP" data-company="MIT Lab, AI Uzbekistan" data-bio="Neyron tarmoqlari va Sun'iy intellekt tadqiqotchisi. Chatbotlar va tasvirlarni aniqlash tizimlari bo'yicha xalqaro PhD darajasiga ega ekluzi`v mentor.">
+                <div class="mentor-avatar-wrapper">
+                    <img src="./images/diyorbek-saidov.png" alt="Diyorbek Saidov" class="mentor-real-img" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=diyor'">
+                </div>
+                <h4>Diyorbek Saidov</h4>
+                <div class="role">AI Researcher</div>
+                <div class="bio">Sun'iy intellekt sohasida 9 yillik tajriba. PhD.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== BOMBA NEON MODAL ==================== -->
+    <div id="cyberMentorModal" class="cyber-modal">
+        <div class="cyber-modal-content">
+            <span class="cyber-close-btn">&times;</span>
+            <div class="cyber-modal-body">
+                <div class="cyber-modal-left">
+                    <div class="modal-img-glow">
+                        <img id="modalImg" src="" alt="Mentor Pic">
+                    </div>
+                </div>
+                <div class="cyber-modal-right">
+                    <h2 id="modalName">Ustoz Ismi</h2>
+                    <h4 id="modalRole">Mutaxassislik</h4>
+                    
+                    <div class="cyber-grid-info">
+                        <div class="cyber-info-box">
+                            <span>🕒 TAJRIBA</span>
+                            <p id="modalExp">-</p>
+                        </div>
+                        <div class="cyber-info-box">
+                            <span>🏢 ISHLAGAN JOYLARI</span>
+                            <p id="modalCompany">-</p>
+                        </div>
+                    </div>
+
+                    <div class="cyber-tech-section">
+                        <span>🛠 TEXNOLOGIYALAR:</span>
+                        <div id="modalTechTags" class="tags" style="margin-top: 5px;"></div>
+                    </div>
+                    
+                    <div class="cyber-bio-section">
+                        <span>📝 MENTOR HAQIDA:</span>
+                        <p id="modalBio" class="modal-bio-text"></p>
+                    </div>
+                    
+                    <button class="cyber-action-btn" onclick="showPage('aloqa'); document.getElementById('cyberMentorModal').classList.remove('active');">
+                        Kursga Yozilish <span style="color: #000;">⚡</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+        <!-- ==================== NATIJALAR PAGE ==================== -->
+    <div class="page" id="page-natijalar">
+
+        <!-- HERO SECTION with 3D floating cubes and glitch text -->
+        <div class="results-hero-3d">
+            <div class="hero-3d-bg">
+                <div class="floating-cube cube-1"></div>
+                <div class="floating-cube cube-2"></div>
+                <div class="floating-cube cube-3"></div>
+                <div class="floating-cube cube-4"></div>
+                <div class="grid-floor"></div>
+            </div>
+            <div class="hero-3d-content">
+                <h1 class="glitch-text" data-text="NATIJALARIMIZ">NATIJALARIMIZ</h1>
+                <p class="hero-subtitle">Bizning o'quvchilarimizning ajoyib yutuqlari va robototexnika musobaqalaridagi g'alabalari</p>
+                <div class="hero-badges">
+                    <span class="hero-badge">🏆 50+ Musobaqa G'olibi</span>
+                    <span class="hero-badge">🤖 30+ Robot Loyiha</span>
+                    <span class="hero-badge">🌍 Xalqaro Tanlov</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D STATS COUNTER SECTION -->
+        <div class="stats-3d-section">
+            <div class="stats-3d-grid">
+                <div class="stat-3d-card" data-count="1500">
+                    <div class="stat-3d-icon">👨‍🎓</div>
+                    <div class="stat-3d-number">0</div>
+                    <div class="stat-3d-label">Bitiruvchilar</div>
+                    <div class="stat-3d-glow"></div>
+                </div>
+                <div class="stat-3d-card" data-count="87">
+                    <div class="stat-3d-icon">🏆</div>
+                    <div class="stat-3d-number">0</div>
+                    <div class="stat-3d-label">Musobaqa G'alabalari</div>
+                    <div class="stat-3d-glow"></div>
+                </div>
+                <div class="stat-3d-card" data-count="45">
+                    <div class="stat-3d-icon">🤖</div>
+                    <div class="stat-3d-number">0</div>
+                    <div class="stat-3d-label">Robot Loyihalar</div>
+                    <div class="stat-3d-glow"></div>
+                </div>
+                <div class="stat-3d-card" data-count="98">
+                    <div class="stat-3d-icon">⭐</div>
+                    <div class="stat-3d-number">0</div>
+                    <div class="stat-3d-label">Mamnunlik Foizi</div>
+                    <div class="stat-3d-glow"></div>
+                </div>
+                <div class="stat-3d-card" data-count="12">
+                    <div class="stat-3d-icon">🌍</div>
+                    <div class="stat-3d-number">0</div>
+                    <div class="stat-3d-label">Xalqaro Mukofotlar</div>
+                    <div class="stat-3d-glow"></div>
+                </div>
+                <div class="stat-3d-card" data-count="200">
+                    <div class="stat-3d-icon">💼</div>
+                    <div class="stat-3d-number">0</div>
+                    <div class="stat-3d-label">Ishga Joylashgan</div>
+                    <div class="stat-3d-glow"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROBO NATIJALAR SECTION -->
+        <div class="robo-section">
+            <div class="section-header-3d">
+                <div class="section-line"></div>
+                <h2 class="section-title-3d">🤖 ROBOTOTEXNIKA NATIJALARI</h2>
+                <div class="section-line"></div>
+            </div>
+            <p class="section-desc-3d">Bizning o'quvchilarimiz yaratgan eng zo'r robotlar va ularning musobaqalardagi yutuqlari</p>
+
+            <div class="robot-grid-3d">
+                <div class="robot-card-3d" onclick="openRobotModal('robo1')">
+                    <div class="robot-card-inner">
+                        <div class="robot-card-front">
+                            <div class="robot-img-wrap">
+                                <div class="robot-placeholder">🤖</div>
+                                <div class="robot-neon-ring"></div>
+                            </div>
+                            <h3>AlphaBot X1</h3>
+                            <p class="robot-type">Avtonom Navigatsiya Robot</p>
+                            <div class="robot-tags">
+                                <span>Arduino</span>
+                                <span>AI</span>
+                                <span>IoT</span>
+                            </div>
+                            <div class="robot-achievement">
+                                <span class="trophy">🏆</span>
+                                <span>O'zbekiston Robot Olimpiadasi - 1-o'rin</span>
+                            </div>
+                        </div>
+                        <div class="robot-card-hover">
+                            <span>Batafsil ko'rish →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="robot-card-3d" onclick="openRobotModal('robo2')">
+                    <div class="robot-card-inner">
+                        <div class="robot-card-front">
+                            <div class="robot-img-wrap">
+                                <div class="robot-placeholder">🦾</div>
+                                <div class="robot-neon-ring"></div>
+                            </div>
+                            <h3>MechaArm Pro</h3>
+                            <p class="robot-type">Robot Qo'l - Manipulyator</p>
+                            <div class="robot-tags">
+                                <span>Raspberry Pi</span>
+                                <span>Python</span>
+                                <span>CV</span>
+                            </div>
+                            <div class="robot-achievement">
+                                <span class="trophy">🥈</span>
+                                <span>Central Asia Tech Fest - 2-o'rin</span>
+                            </div>
+                        </div>
+                        <div class="robot-card-hover">
+                            <span>Batafsil ko'rish →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="robot-card-3d" onclick="openRobotModal('robo3')">
+                    <div class="robot-card-inner">
+                        <div class="robot-card-front">
+                            <div class="robot-img-wrap">
+                                <div class="robot-placeholder">🚁</div>
+                                <div class="robot-neon-ring"></div>
+                            </div>
+                            <h3>SkyDrone AI</h3>
+                            <p class="robot-type">Avtonom Drone</p>
+                            <div class="robot-tags">
+                                <span>AI</span>
+                                <span>AutoPilot</span>
+                                <span>LiDAR</span>
+                            </div>
+                            <div class="robot-achievement">
+                                <span class="trophy">🏆</span>
+                                <span>Toshkent AeroHack - 1-o'rin</span>
+                            </div>
+                        </div>
+                        <div class="robot-card-hover">
+                            <span>Batafsil ko'rish →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="robot-card-3d" onclick="openRobotModal('robo4')">
+                    <div class="robot-card-inner">
+                        <div class="robot-card-front">
+                            <div class="robot-img-wrap">
+                                <div class="robot-placeholder">🚗</div>
+                                <div class="robot-neon-ring"></div>
+                            </div>
+                            <h3>AutoRacer V2</h3>
+                            <p class="robot-type">Avtonom Mashina</p>
+                            <div class="robot-tags">
+                                <span>ROS</span>
+                                <span>ML</span>
+                                <span>Sensors</span>
+                            </div>
+                            <div class="robot-achievement">
+                                <span class="trophy">🥉</span>
+                                <span>RoboRace Uzbekistan - 3-o'rin</span>
+                            </div>
+                        </div>
+                        <div class="robot-card-hover">
+                            <span>Batafsil ko'rish →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="robot-card-3d" onclick="openRobotModal('robo5')">
+                    <div class="robot-card-inner">
+                        <div class="robot-card-front">
+                            <div class="robot-img-wrap">
+                                <div class="robot-placeholder">🏠</div>
+                                <div class="robot-neon-ring"></div>
+                            </div>
+                            <h3>SmartHome Hub</h3>
+                            <p class="robot-type">Aqlli Uy Tizimi</p>
+                            <div class="robot-tags">
+                                <span>IoT</span>
+                                <span>ESP32</span>
+                                <span>Cloud</span>
+                            </div>
+                            <div class="robot-achievement">
+                                <span class="trophy">🏆</span>
+                                <span>Innovation Week - Eng Yaxshi Loyiha</span>
+                            </div>
+                        </div>
+                        <div class="robot-card-hover">
+                            <span>Batafsil ko'rish →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="robot-card-3d" onclick="openRobotModal('robo6')">
+                    <div class="robot-card-inner">
+                        <div class="robot-card-front">
+                            <div class="robot-img-wrap">
+                                <div class="robot-placeholder">🎮</div>
+                                <div class="robot-neon-ring"></div>
+                            </div>
+                            <h3>BattleBot Z</h3>
+                            <p class="robot-type">Jangovar Robot</p>
+                            <div class="robot-tags">
+                                <span>C++</span>
+                                <span>Mechanics</span>
+                                <span>RC</span>
+                            </div>
+                            <div class="robot-achievement">
+                                <span class="trophy">🥇</span>
+                                <span>RoboWars Tashkent - Chempion</span>
+                            </div>
+                        </div>
+                        <div class="robot-card-hover">
+                            <span>Batafsil ko'rish →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROGRAMMING RESULTS TIMELINE -->
+        <div class="prog-results-section">
+            <div class="section-header-3d">
+                <div class="section-line"></div>
+                <h2 class="section-title-3d">💻 DASTURLASH NATIJALARI</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="prog-timeline-3d">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item" onclick="openResultModal('result1')">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">2026</div>
+                        <h3>ICPC Asia Regional</h3>
+                        <p>PDP Junior jamoasi ICPC dasturlash olimpiadasining Osiyo mintaqaviy bosqichida <strong>Bronza medal</strong> qo'lga kiritdi.</p>
+                        <div class="timeline-tags">
+                            <span>C++</span>
+                            <span>Algoritm</span>
+                            <span>TeamWork</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="openResultModal('result2')">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">2026</div>
+                        <h3>Google Code Jam</h3>
+                        <p>3 nafar o'quvchimiz Google Code Jam musobaqasining ikkinchi bosqichiga chiqdi. 15 yoshli o'quvchimiz 5000+ ishtirokchi orasidan <strong>Top 200</strong> ga kirdi.</p>
+                        <div class="timeline-tags">
+                            <span>Python</span>
+                            <span>Math</span>
+                            <span>Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="openResultModal('result3')">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">2025</div>
+                        <h3>O'zbekiston IT Olimpiadasi</h3>
+                        <p>Respublika IT olimpiadasida PDP Junior o'quvchilari <strong>5 ta oltin, 8 ta kumush</strong> medal qo'lga kiritdi.</p>
+                        <div class="timeline-tags">
+                            <span>Java</span>
+                            <span>Olympiad</span>
+                            <span>National</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="openResultModal('result4')">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">2025</div>
+                        <h3>Hackathon Tashkent</h3>
+                        <p>48 soatlik hackatonda "EcoTrack" loyihasi bilan <strong>1-o'rin</strong>. Aqlli ekologik monitoring tizimi.</p>
+                        <div class="timeline-tags">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" onclick="openResultModal('result5')">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">2024</div>
+                        <h3>Informatics Olympiad (IOI)</h3>
+                        <p>Xalqaro informatika olimpiadasida PDP Junior vakili <strong>Honorable Mention</strong> mukofotini qo'lga kiritdi.</p>
+                        <div class="timeline-tags">
+                            <span>C++</span>
+                            <span>IOI</span>
+                            <span>International</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUCCESS STORIES -->
+        <div class="success-stories-section">
+            <div class="section-header-3d">
+                <div class="section-line"></div>
+                <h2 class="section-title-3d">⭐ MUVAFFAQIYAT TARIXLARI</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="stories-carousel-3d">
+                <div class="story-card-3d" onclick="openStoryModal('story1')">
+                    <div class="story-glow"></div>
+                    <div class="story-avatar">👨‍💻</div>
+                    <h3>Sardorbek T.</h3>
+                    <p class="story-role">Google Software Engineer</p>
+                    <p class="story-text">"PDP Junior'da 2 yil o'qib, Python va algoritmlarni o'rgandim. Hozir Google'da ishlayman. Eng yaxshi qarorim!"</p>
+                    <div class="story-stats">
+                        <span>📅 2023 bitiruvchi</span>
+                        <span>💰 $150k+</span>
+                    </div>
+                </div>
+
+                <div class="story-card-3d" onclick="openStoryModal('story2')">
+                    <div class="story-glow"></div>
+                    <div class="story-avatar">👩‍💻</div>
+                    <h3>Madina K.</h3>
+                    <p class="story-role">Yandex Frontend Developer</p>
+                    <p class="story-text">"Web dizayn kursi menga ko'p eshiklar ochdi. Yandex'da ishlayman va o'z startapimni ham boshladim."</p>
+                    <div class="story-stats">
+                        <span>📅 2024 bitiruvchi</span>
+                        <span>🚀 Startap asoschisi</span>
+                    </div>
+                </div>
+
+                <div class="story-card-3d" onclick="openStoryModal('story3')">
+                    <div class="story-glow"></div>
+                    <div class="story-avatar">🤖</div>
+                    <h3>Jasurbek A.</h3>
+                    <p class="story-role">Robotics Engineer - Tesla</p>
+                    <p class="story-text">"Robototexnika kursi orqali Arduino va ROS o'rgandim. Hozir Tesla'da avtonom mashinalar ustida ishlayman."</p>
+                    <div class="story-stats">
+                        <span>📅 2022 bitiruvchi</span>
+                        <span>🏭 Tesla</span>
+                    </div>
+                </div>
+
+                <div class="story-card-3d" onclick="openStoryModal('story4')">
+                    <div class="story-glow"></div>
+                    <div class="story-avatar">🎮</div>
+                    <h3>Diyorbek S.</h3>
+                    <p class="story-role">Game Developer - Ubisoft</p>
+                    <p class="story-text">"Unity va Unreal Engine o'rgandim. Hozir Ubisoft'da AAA o'yinlar ustida ishlayman. Orzuyim ro'yobga chiqdi!"</p>
+                    <div class="story-stats">
+                        <span>📅 2023 bitiruvchi</span>
+                        <span>🎮 Ubisoft</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERTIFICATES & PARTNERS -->
+        <div class="certs-section">
+            <div class="section-header-3d">
+                <div class="section-line"></div>
+                <h2 class="section-title-3d">📜 SERTIFIKAT VA HAMKORLAR</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">🏅</div>
+                    <h4>ISO 9001:2015</h4>
+                    <p>Xalqaro sifat standarti</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🤝</div>
+                    <h4>Google Partners</h4>
+                    <p>Rasmiy ta'lim hamkori</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📋</div>
+                    <h4>Microsoft Certified</h4>
+                    <p>O'quv markaz sertifikati</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🌐</div>
+                    <h4>Cisco Academy</h4>
+                    <p>Tarmoq akademiyasi</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA SECTION -->
+        <div class="cta-section-3d scroll-reveal">
+            <div class="cta-3d-bg"></div>
+            <h2>Siz ham muvaffaqiyat qozoning!</h2>
+            <p>Birinchi dars bepul. Hoziroq ro'yxatdan o'ting va IT sohasidagi karyerangizni boshlang.</p>
+            <button class="cta-btn-3d" onclick="showPage('aloqa')">
+                <span>🚀 Bepul Darsga Yozilish</span>
+            </button>
+        </div>
+    </div>
+
+
+
+<!-- ==================== ALOQA PAGE ==================== -->
+    <div class="page" id="page-aloqa">
+        <div class="contact-hero">
+            <h1 style="color: var(--primary);">Biz bilan bog'laning</h1>
+            <p>Savollaringiz bormi? Biz sizga yordam berishga tayyormiz!</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item scroll-reveal">
+                    <div class="icon-box">📞</div>
+                    <div><h4>Telefon</h4><p>+998 71 200 11 33</p></div>
+                </div>
+                <div class="contact-item scroll-reveal">
+                    <div class="icon-box">✉️</div>
+                    <div><h4>Email</h4><p>info@pdpjunior.uz</p></div>
+                </div>
+                <div class="contact-item scroll-reveal">
+                    <div class="icon-box">📍</div>
+                    <div><h4>Manzil</h4><p>Toshkent sh., Yashnobod tumani, Amir Temur ko'chasi, 108-uy</p></div>
+                </div>
+                <div class="contact-item scroll-reveal">
+                    <div class="icon-box">🕐</div>
+                    <div><h4>Ish vaqti</h4><p>Dushanba - Shanba: 09:00 - 20:00</p></div>
+                </div>
+                <div class="contact-item scroll-reveal">
+                    <div class="icon-box">💬</div>
+                    <div><h4>Telegram</h4><p>@pdpjunior_bot</p></div>
+                </div>
+            </div>
+
+            <div class="contact-form scroll-reveal">
+                <h3>Xabar yuborish</h3>
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group"><label>Ismingiz</label><input type="text" placeholder="Ismingizni kiriting" required></div>
+                    <div class="form-group"><label>Telefon raqamingiz</label><input type="tel" placeholder="+998 90 123 45 67" required></div>
+                    <div class="form-group"><label>Email</label><input type="email" placeholder="email@example.com"></div>
+                    <div class="form-group"><label>Xabar</label><textarea placeholder="Xabaringizni yozing..." required></textarea></div>
+                    <button type="submit" class="submit-btn">Yuborish</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="cta-section scroll-reveal" style="margin-top: 40px;">
+            <h2>Bepul sinov darsiga yoziling!</h2>
+            <p>Birinchi dars bepul. Formani to'ldiring va biz siz bilan bog'lanamiz.</p>
+            <button class="cta-btn" onclick="document.querySelector('.contact-form input').focus()">Hozir ro'yxatdan o'tish</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-links">
+            <a onclick="showPage('filiallar')">Filiallar</a>
+            <a onclick="showPage('kurslar')">Kurslar</a>
+            <a onclick="showPage('mentorlar')">Mentorlar</a>
+            <a onclick="showPage('natijalar')">Natijalar</a>
+            <a onclick="showPage('aloqa')">Aloqa</a>
+        </div>
+        <p>&copy; 2026 PDP JUNIOR. Barcha huquqlar himoyalangan.</p>
+    </div>
+
+<script src="./js/main.js" defer></script>
+
+
+    <!-- ==================== DAHSHAT BOMBA KURS MODAL ==================== -->
+    <div class="kurs-overlay" id="kursOverlay" onclick="closeKursModal(event)">
+        <div class="kurs-modal" onclick="event.stopPropagation()">
+            <button class="kurs-close" onclick="closeKursModal()">&times;</button>
+
+            <div class="kurs-header">
+                <div class="kurs-header-bg">
+                    <div class="kurs-particle" style="top:20%;left:15%;animation-delay:0s;"></div>
+                    <div class="kurs-particle" style="top:40%;left:80%;animation-delay:0.5s;"></div>
+                    <div class="kurs-particle" style="top:60%;left:25%;animation-delay:1s;"></div>
+                    <div class="kurs-particle" style="top:30%;left:60%;animation-delay:1.5s;"></div>
+                    <div class="kurs-particle" style="top:70%;left:70%;animation-delay:2s;"></div>
+                </div>
+                <div class="kurs-icon-wrap" id="kursIcon">💻</div>
+                <h1 class="kurs-title glitch-text" id="kursTitle" data-text="Dasturlash Asoslari">Dasturlash Asoslari</h1>
+                <p class="kurs-subtitle" id="kursSubtitle">Zamonaviy Dasturlash Kursi</p>
+            </div>
+
+            <div class="kurs-body">
+                <!-- Info Grid -->
+                <div class="kurs-info-grid">
+                    <div class="kurs-info-box">
+                        <div class="info-icon">⏱️</div>
+                        <div class="info-label">Davomiylik</div>
+                        <div class="info-value" id="kursDuration">6 oy</div>
+                    </div>
+                    <div class="kurs-info-box">
+                        <div class="info-icon">📚</div>
+                        <div class="info-label">Darslar</div>
+                        <div class="info-value" id="kursLessons">72 ta</div>
+                    </div>
+                    <div class="kurs-info-box">
+                        <div class="info-icon">👥</div>
+                        <div class="info-label">Guruh</div>
+                        <div class="info-value" id="kursGroup">8-12 kishi</div>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <p class="kurs-desc" id="kursDesc">
+                    Bu kursda siz Python, JavaScript va C++ tillarini o'rganasiz. Real loyihalar ustida ishlash, algoritmlar, ma'lumotlar tuzilmasi va dasturlash paradigmalari bilan tanishasiz.
+                </p>
+
+                <!-- Skills -->
+                <div class="kurs-section-title">O'rganasiz</div>
+                <div class="skills-grid" id="kursSkills">
+                    <div class="skill-item"><div class="skill-dot"></div><span>Python asoslari</span></div>
+                    <div class="skill-item"><div class="skill-dot"></div><span>JavaScript ES6+</span></div>
+                    <div class="skill-item"><div class="skill-dot"></div><span>C++ OOP</span></div>
+                    <div class="skill-item"><div class="skill-dot"></div><span>Algoritmlar</span></div>
+                    <div class="skill-item"><div class="skill-dot"></div><span>Ma'lumotlar tuzilmasi</span></div>
+                    <div class="skill-item"><div class="skill-dot"></div><span>Git & GitHub</span></div>
+                </div>
+
+                <!-- Progress -->
+                <div class="kurs-section-title">Kurs Tarkibi</div>
+                <div class="progress-section" id="kursProgress">
+                    <div class="progress-item">
+                        <div class="progress-label"><span>Python Asoslari</span><span class="progress-pct">30%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" data-width="30"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>JavaScript</span><span class="progress-pct">25%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" data-width="25"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>C++ & OOP</span><span class="progress-pct">25%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" data-width="25"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>Loyiha & Amaliyot</span><span class="progress-pct">20%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" data-width="20"></div></div>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="kurs-section-title">Loyihalar</div>
+                <div class="projects-grid" id="kursProjects">
+                    <div class="project-card">
+                        <div class="proj-icon">🤖</div>
+                        <h5>Telegram Bot</h5>
+                        <p>Python bilan bot</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="proj-icon">🌐</div>
+                        <h5>Veb Sayt</h5>
+                        <p>HTML/CSS/JS</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="proj-icon">🎮</div>
+                        <h5>Konsol O'yini</h5>
+                        <p>C++ bilan</p>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <button class="kurs-cta" onclick="alert('Ariza yuborildi! Tez orada siz bilan bog\'lanamiz.')">
+                    ⚡ Kursga Yozilish
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

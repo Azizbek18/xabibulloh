@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDP JUNIOR // CYBER_AUTH</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+    <div class="cyber-grid"></div>
+
+    <div class="auth-container" id="authContainer">
+        
+        <div class="cube-wrapper">
+            <div class="cube" id="cyberCube">
+                <div class="cube-face front">PDP</div>
+                <div class="cube-face back">JUNIOR</div>
+                <div class="cube-face right">3D</div>
+                <div class="cube-face left">CORE</div>
+                <div class="cube-face top">AI</div>
+                <div class="cube-face bottom">KIBER</div>
+            </div>
+        </div>
+
+        <div class="brand-title">PDP <span>JUNIOR</span></div>
+        <div class="system-status" id="sysStatus">// SECURE_GATEWAY_v3.0</div>
+
+        <div class="input-group">
+            <input type="text" id="username" placeholder="KIBER_USER_ID" autocomplete="off">
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="ACCESS_PASSWORD">
+        </div>
+
+        <button class="cyber-btn" onclick="triggerSystemAccess()">ACCESS SYSTEM</button>
+        
+        <div class="switch-link" id="switchMode" onclick="toggleMode()">[ SIZDA AKKAUNT YO'QMI? REGISTRATION ]</div>
+    </div>
+
+    <script src="../js/login.js" defer></script>
+</body>
+</html>
