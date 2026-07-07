@@ -59,9 +59,8 @@ const cube = document.getElementById('cyberCube');
             setTimeout(() => {
                 container.classList.add('system-boomed');
                 setTimeout(() => {
-                    // BU YERGA O'ZINGNING ASOSIY SAHIFANGNING NOMI QANDAY BO'LSA O'SHANI YOZ!
-                    // Masalan: 'index.html' yoki sening asosiy portfolio sahifang.
-                    window.location.href = '../index.html'; 
+                    localStorage.setItem('pdpjunior_auth', 'true');
+                    window.location.href = '../index.html';
                 }, 500);
             }, 1200);
         }
