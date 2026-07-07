@@ -97,17 +97,42 @@
     // 3. Sahifalarni almashtirish funksiyasi
     function showPage(pageId) {
         document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-        document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
-        
+        document.querySelectorAll('.side-nav-links a').forEach(link => link.classList.remove('active'));
+
         const targetPage = document.getElementById('page-' + pageId);
         if (targetPage) targetPage.classList.add('active');
-        
-        const activeLink = Array.from(document.querySelectorAll('.nav-links a'))
+
+        const activeLink = Array.from(document.querySelectorAll('.side-nav-links a'))
                                .find(link => link.getAttribute('onclick').includes(pageId));
         if (activeLink) activeLink.classList.add('active');
-        
+
+        closeSideMenu();
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
         // Yangi sahifaga o'tganda ham elementlar ko'rinishi uchun
         setTimeout(checkReveal, 100);
+    }
+
+    // 3D YON MENYU (SIDE MENU) BOSHQARUVI
+    function toggleSideMenu() {
+        const menu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('sideMenuOverlay');
+        const toggle = document.getElementById('menuToggle');
+        const isActive = menu.classList.toggle('active');
+        overlay.classList.toggle('active', isActive);
+        toggle.classList.toggle('active', isActive);
+        toggle.setAttribute('aria-expanded', isActive);
+        document.body.style.overflow = isActive ? 'hidden' : '';
+    }
+
+    function closeSideMenu() {
+        const menu = document.getElementById('sideMenu');
+        if (!menu.classList.contains('active')) return;
+        menu.classList.remove('active');
+        document.getElementById('sideMenuOverlay').classList.remove('active');
+        document.getElementById('menuToggle').classList.remove('active');
+        document.getElementById('menuToggle').setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
     }
 
     // 4. YO'QOLIB QOLGAN ANIMATSIYALARNI QAYTA TIKLASH (Scroll Reveal)
@@ -967,5 +992,6 @@ document.head.appendChild(style);
                 cyberModal.classList.remove('active');
             }
             closeResultModal();
+            closeSideMenu();
         }
     });

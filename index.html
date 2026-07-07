@@ -55,14 +55,28 @@
     <!-- Navbar -->
     <nav class="navbar">
         <a href="#" class="logo" onclick="showPage('filiallar'); return false;">PDP <span>JUNIOR</span></a>
-        <ul class="nav-links">
-            <li><a class="active" onclick="showPage('filiallar')">Filiallar</a></li>
-            <li><a onclick="showPage('kurslar')">Kurslar</a></li>
-            <li><a onclick="showPage('mentorlar')">Mentorlar</a></li>
-            <li><a onclick="showPage('natijalar')">Natijalar</a></li>
-            <li><a onclick="showPage('aloqa')">Aloqa</a></li>
-        </ul>
+        <button class="menu-toggle" id="menuToggle" onclick="toggleSideMenu()" aria-label="Menyu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+
+    <!-- 3D Side Menu -->
+    <div class="side-menu-root">
+        <div class="side-menu-overlay" id="sideMenuOverlay" onclick="closeSideMenu()"></div>
+        <aside class="side-menu" id="sideMenu">
+            <div class="side-menu-glow"></div>
+            <button class="side-menu-close" onclick="closeSideMenu()">&times;</button>
+            <div class="side-menu-brand">PDP <span>JUNIOR</span></div>
+            <ul class="side-nav-links">
+                <li><a class="active" style="--item-color:#00d4aa; --item-glow:rgba(0,212,170,0.35);" onclick="showPage('filiallar')"><span class="side-nav-icon">🏢</span>Filiallar</a></li>
+                <li><a style="--item-color:#ff6b6b; --item-glow:rgba(255,107,107,0.35);" onclick="showPage('kurslar')"><span class="side-nav-icon">💻</span>Kurslar</a></li>
+                <li><a style="--item-color:#4ecdc4; --item-glow:rgba(78,205,196,0.35);" onclick="showPage('mentorlar')"><span class="side-nav-icon">🧑‍🏫</span>Mentorlar</a></li>
+                <li><a style="--item-color:#ffe66d; --item-glow:rgba(255,230,109,0.35);" onclick="showPage('natijalar')"><span class="side-nav-icon">🏆</span>Natijalar</a></li>
+                <li><a style="--item-color:#c7ceea; --item-glow:rgba(199,206,234,0.35);" onclick="showPage('aloqa')"><span class="side-nav-icon">📞</span>Aloqa</a></li>
+            </ul>
+            <a href="https://t.me/pdp3d_login_bot" target="_blank" class="side-menu-bot-btn">🤖 Rasmiy Botga o'tish</a>
+        </aside>
+    </div>
 
     <!-- ==================== FILIALLAR PAGE ==================== -->
     <div class="page active" id="page-filiallar">

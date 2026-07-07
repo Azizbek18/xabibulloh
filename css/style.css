@@ -172,14 +172,114 @@
         }
         .logo:hover { transform: scale(1.05); }
         .logo span { color: var(--primary); }
-        .nav-links { display: flex; gap: 8px; list-style: none; }
-        .nav-links a {
-            color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 600;
-            padding: 10px 20px; border-radius: 8px; transition: all 0.3s; cursor: pointer;
-            border: none; background: transparent; font-family: inherit;
+
+        /* ==================== HAMBURGER TOGGLE (3D) ==================== */
+        .menu-toggle {
+            position: relative; width: 46px; height: 46px; flex-shrink: 0;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            border-radius: 12px; cursor: pointer; z-index: 2100;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.05); }
-        .nav-links a.active { color: var(--primary); background: rgba(0, 212, 170, 0.1); }
+        .menu-toggle:hover {
+            border-color: var(--primary); box-shadow: 0 0 20px rgba(0, 212, 170, 0.25);
+            transform: translateY(-2px);
+        }
+        .menu-toggle span {
+            display: block; width: 20px; height: 2px; border-radius: 2px;
+            background: #fff; transition: transform 0.35s cubic-bezier(0.68,-0.55,0.27,1.55), opacity 0.25s, background 0.3s;
+        }
+        .menu-toggle.active { border-color: var(--primary); box-shadow: 0 0 25px rgba(0, 212, 170, 0.35); }
+        .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--primary); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--primary); }
+
+        /* ==================== 3D SIDE MENU (YON MENU) ==================== */
+        .side-menu-root { position: fixed; inset: 0; z-index: 2000; perspective: 1600px; pointer-events: none; }
+
+        .side-menu-overlay {
+            position: absolute; inset: 0; background: rgba(5, 5, 12, 0.65);
+            backdrop-filter: blur(8px); opacity: 0; visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .side-menu-overlay.active { opacity: 1; visibility: visible; pointer-events: auto; }
+
+        .side-menu {
+            position: absolute; top: 0; right: 0; height: 100%;
+            width: 320px; max-width: 85vw;
+            background: linear-gradient(165deg, #0d0d17 0%, #101223 55%, #0a0a0f 100%);
+            border-left: 1px solid rgba(0, 212, 170, 0.25);
+            box-shadow: -25px 0 60px rgba(0,0,0,0.55), inset 0 0 50px rgba(0, 212, 170, 0.04);
+            transform: translateX(110%) rotateY(-25deg);
+            transform-origin: right center;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex; flex-direction: column;
+            padding: 90px 28px 30px;
+            overflow-y: auto; overflow-x: hidden;
+            pointer-events: none;
+        }
+        .side-menu.active { transform: translateX(0) rotateY(0deg); pointer-events: auto; }
+
+        .side-menu-glow {
+            position: absolute; inset: 0; z-index: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(0, 212, 170, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 170, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 75%);
+                    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 75%);
+        }
+
+        .side-menu-close {
+            position: absolute; top: 22px; right: 22px; width: 38px; height: 38px;
+            border-radius: 50%; border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03); color: var(--text-muted);
+            font-size: 24px; line-height: 1; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; z-index: 2;
+        }
+        .side-menu-close:hover { color: var(--primary); border-color: var(--primary); transform: rotate(90deg); box-shadow: 0 0 20px rgba(0,212,170,0.3); }
+
+        .side-menu-brand {
+            position: relative; z-index: 1;
+            font-size: 24px; font-weight: 900; letter-spacing: -0.5px; color: #fff;
+            margin-bottom: 36px;
+        }
+        .side-menu-brand span { color: var(--primary); text-shadow: 0 0 15px rgba(0, 212, 170, 0.5); }
+
+        .side-nav-links { position: relative; z-index: 1; list-style: none; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+        .side-nav-links a {
+            display: flex; align-items: center; gap: 14px;
+            padding: 14px 16px; border-radius: 12px;
+            color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600;
+            border: 1px solid transparent; background: transparent;
+            position: relative; overflow: hidden; cursor: pointer;
+            transition: all 0.3s;
+        }
+        .side-nav-links a::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+            background: var(--item-color, var(--primary)); transform: scaleY(0); transition: transform 0.3s;
+        }
+        .side-nav-links a:hover, .side-nav-links a.active {
+            color: #fff; background: rgba(255,255,255,0.04);
+            border-color: var(--item-glow, rgba(0, 212, 170, 0.35));
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35), 0 0 20px var(--item-glow, rgba(0, 212, 170, 0.35));
+            transform: translateX(-4px);
+        }
+        .side-nav-links a:hover::before, .side-nav-links a.active::before { transform: scaleY(1); }
+        .side-nav-icon { font-size: 18px; width: 22px; text-align: center; }
+
+        .side-menu-bot-btn {
+            position: relative; z-index: 1; margin-top: 24px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 14px; border-radius: 12px; text-decoration: none;
+            background: linear-gradient(90deg, rgba(0, 212, 170, 0.15), rgba(0, 180, 255, 0.1));
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            color: var(--primary); font-weight: 700; font-size: 13px; letter-spacing: 0.5px;
+            transition: all 0.3s;
+        }
+        .side-menu-bot-btn:hover { box-shadow: 0 0 20px rgba(0, 212, 170, 0.3); transform: translateY(-2px); }
 
         /* PAGE */
         .page { display: none; max-width: 1200px; margin: 0 auto; padding: 0 40px 60px; position: relative; z-index: 1; }
@@ -376,9 +476,7 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .navbar { padding: 15px 20px; flex-wrap: wrap; gap: 10px; }
-            .nav-links { gap: 4px; flex-wrap: wrap; justify-content: center; }
-            .nav-links a { padding: 8px 14px; font-size: 12px; }
+            .navbar { padding: 15px 20px; }
             .page { padding: 0 20px 40px; }
             .branch-header h1 { font-size: 24px; }
             .branch-content { grid-template-columns: 1fr; }
@@ -396,8 +494,10 @@
         @media (max-width: 400px) {
             .navbar { padding: 10px 12px; gap: 6px; }
             .logo { font-size: 20px; }
-            .nav-links { gap: 2px; }
-            .nav-links a { padding: 6px 10px; font-size: 11px; }
+            .menu-toggle { width: 40px; height: 40px; }
+            .side-menu { padding: 78px 20px 24px; }
+            .side-menu-brand { font-size: 20px; margin-bottom: 26px; }
+            .side-nav-links a { padding: 12px 14px; font-size: 14px; }
             .page { padding: 0 12px 30px; }
             .branch-header { padding: 24px 0; }
             .branch-header h1 { font-size: 19px; }
