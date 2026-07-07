@@ -272,83 +272,14 @@ function closeRobot() {
     }
 }
 
-
-
-
-
-
-const kiberData = {
-    python: {
-        title: "Python Kiber Dasturlash",
-        badge: "LIVE PREVIEW MODAL",
-        desc: "Python tilida mukammal algoritmlar tuzish, backend tizimlarini qurish va daxshatli Telegram bot avtomatizatsiyalarini noldan yuqori bosqichgacha o'rganing.",
-        tags: ["Python", "Telegram Bot", "Django"],
-        type: "video",
-        src: "https://www.youtube.com/embed/nLRL_NcnK-4?autoplay=1&mute=1" // Kichik formatdagi Python darslik videosi
-    },
-    design: {
-        title: "UI/UX & Kiber Dizayn",
-        badge: "3D NEON SCANNER",
-        desc: "Video shart emas! Figma va zamonaviy UI instrumentlari yordamida cyberpunk uslubidagi neon va 3D veb-sayt maketlarini yaratish sirlari.",
-        tags: ["Figma", "Cyberpunk UI", "User Flow"],
-        type: "3d-hologram",
-        color: "#ff6b6b",
-        icon: "🎨"
-    },
-    robotics: {
-        title: "Robototexnika va IoT",
-        badge: "MATRIX MATRIX ENGINE",
-        desc: "Elektron chiplar, Arduino platasi va sensorlar ustida daxshatli eksperimentlar o'tkazish. Kelajak aqlli uylari texnologiyasini boshqarish.",
-        tags: ["Arduino", "Microchips", "C++"],
-        type: "3d-hologram",
-        color: "#00d4aa",
-        icon: "🤖"
-    }
-};
-
-function openKiberModal(key) {
-    const item = kiberData[key];
-    if (!item) return;
-
-    document.getElementById('kiberModalTitle').innerText = item.title;
-    document.getElementById('kiberModalBadge').innerText = item.badge;
-    document.getElementById('kiberModalDesc').innerText = item.desc;
-
-    // Taglarni to'ldirish
-    const container = document.getElementById('kiberModalTags');
-    container.innerHTML = '';
-    item.tags.forEach(t => {
-        container.innerHTML += `<span class="tag" style="border-color:${item.color || 'var(--primary)'}">${t}</span>`;
-    });
-
-    // Vizual qism (Video yoki 3D effekt)
-    const visualBox = document.getElementById('modalVisualContainer');
-    visualBox.innerHTML = '';
-
-    if (item.type === "video") {
-        visualBox.innerHTML = `<iframe src="${item.src}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute; width:100%; height:100%; border:none;"></iframe>`;
-    } else if (item.type === "3d-hologram") {
-        // Video o'rniga daxshatli Kiber Matrix/Hologram visual render qilamiz
-        visualBox.innerHTML = `
-            <div class="hologram-scanner" style="position:absolute; width:100%; height:100%; background: radial-gradient(circle, rgba(0,0,0,0) 30%, #07070c 70%); z-index:2;"></div>
-            <div style="font-size: 80px; filter: drop-shadow(0 0 20px ${item.color}); animation: floatRobot 2.5s ease-in-out infinite; z-index:1;">${item.icon}</div>
-            <div class="laser-line" style="position:absolute; width:100%; height:2px; background:${item.color}; box-shadow: 0 0 15px ${item.color}; top:0; animation: scan 2s linear infinite; z-index:3;"></div>
-        `;
-    }
-
-    // Modalni ochish
-    document.getElementById('kiber-course-modal').classList.add('active');
+// ALOQA FORMASINI YUBORISH
+function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    alert("Xabaringiz qabul qilindi! Tez orada siz bilan bog'lanamiz.");
+    form.reset();
 }
 
-function closeKiberModal() {
-    document.getElementById('kiber-course-modal').classList.remove('active');
-    document.getElementById('modalVisualContainer').innerHTML = '';
-}
-
-// Skanner chizig'i animatsiyasi uchun CSS dinamik qo'shish
-const style = document.createElement('style');
-style.innerHTML = `@keyframes scan { 0% { top: 0%; } 50% { top: 100%; } 100% { top: 0%; } }`;
-document.head.appendChild(style);
 
 
     // ==================== NATIJALAR PAGE JAVASCRIPT ====================

@@ -8,7 +8,7 @@ PDP Junior o'quv markazi uchun statik veb-sayt. Filiallar, kurslar, mentorlar va
 index.html        Asosiy sahifa (Filiallar, Kurslar, Mentorlar, Natijalar, Aloqa)
 pages/login.html   Kirish sahifasi
 css/               Uslublar (style.css, login.css)
-js/                Skriptlar (main.js, login.js, chat.js)
+js/                Skriptlar (main.js, login.js)
 images/            Rasmlar
 ```
 
